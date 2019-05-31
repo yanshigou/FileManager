@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+__author__ = "dzt"
+__date__ = "2019/5/31"
+
 import os
 import time
 
@@ -27,6 +31,7 @@ class FileObject:
         self.__metadata_change_time = None
         self.__file_name = None
         self.__dir_name = None
+        self.__string = ""
 
         if os.path.exists(filePath):
 
@@ -159,6 +164,7 @@ class FileObject:
         """
         return self.__dir_name
 
+    @property
     def show_info(self):
 
         if self.exists:
@@ -177,6 +183,7 @@ class FileObject:
                                                                     time.localtime(self.metadata_change_time))
             string += "------------------------------------------\n"
             print(string)
+            return self.__string
 
 
 class FileObjectManager:
